@@ -61,6 +61,14 @@ SECTIONS
     . = ALIGN(4);
   } >FLASH_BOOT
 
+  .text.boot :
+  {
+    . = ALIGN(4);
+    *(.text.boot*)			
+    *(.rodata.boot*)      /* const data for boot */
+    . = ALIGN(4);
+  } > FLASH_BOOT
+	
   .isr_vector_app :
 {
   . = ALIGN(4);
